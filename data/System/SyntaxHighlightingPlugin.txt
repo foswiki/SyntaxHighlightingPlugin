@@ -1,15 +1,21 @@
-%META:TOPICINFO{author="tisser_n" date="1043231880" format="1.0" version="1.4"}%
+%META:TOPICINFO{author="ProjectContributor" date="1182547552" format="1.1" version="$Rev$"}%
+
+---+!! !SyntaxHighlightingPlugin
 <!--
+One line description, required for extensions repository catalog.
    * Set SHORTDESCRIPTION = This Plugin is used to emphasize the rendering of your wiki text according to several languages.
 -->
+%SHORTDESCRIPTION%
 
----++ Syntax Highlighting Plugin
+%TOC%
+
+---++ Description
 
 The Syntax Highlighting Plugin is used to emphasize the rendering of your wiki text according to several languages.
 
-It currently uses =enscript= to render its output.
+It uses =enscript= to render its output.
 
-It supports the following languages : 
+It supports the following languages :
 	* ada
 	* asm
 	* awk
@@ -126,13 +132,9 @@ EOF
 done
 %ENDCODE%
 
----+++ Plugin Settings
-
-Use configure to change the settings for this plugin.
-
 ---+++ Change of Syntax
 
-This plugin used to use the following syntax:
+This plugin used to use the following syntax (pre September 2008):
 
 <verbatim>
 %begin sh%
@@ -140,29 +142,35 @@ This plugin used to use the following syntax:
 %end%
 </verbatim>
 
-This has been changed to be more consistent with other twiki variables. There is a script included which will replace the old syntax with the new. To use it, copy it from the =tools= directory and into your =data= directory. When you run it, it will look through your webs and replace the syntax. Note that its not the best script in the world, so always test it on a copy of your data first!
+This has been changed to be more consistent with other Foswiki variables. There is a script included which will replace the old syntax with the new. To use it, copy it from the =tools= directory and into your =data= directory. When you run it, it will look through your webs and replace the syntax. Note that its not the best script in the world, so always test it on a copy of your data first!
 
----+++ Plugin Installation Instructions
+---++ Installation Instructions
 
 %$INSTALL_INSTRUCTIONS%
 
----+++ Plugin Files
+You should ensure the path to =enscript= is correctly set in =configure= before enabling the plugin.
 
+---++ Plugin Files
+
+   | *File:* | *Description:* |
 %$MANIFEST%
 
 ---+++ Plugin Info
 
-|  Plugin Author: | TWiki:Main.AndrewRJones |
-|  Previous Authors: | TWiki:Main.NicolasTisserand, TWiki:Main.NicolasBurrus, Perceval Anichini |
+|  Plugin Author(s): | Foswiki:Main.AndrewJones |
+|  Previous Author(s): | TWiki:Main.NicolasTisserand, TWiki:Main.NicolasBurrus, Perceval Anichini |
+|  Copyright: | &copy; 2008 - 2009, Andrew Jones, &copy; 2000 - 2001, Andrea Sterbini, &copy; 2001, Peter Theony |
 |  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Plugin Release: | %$RELEASE% |
 |  Plugin Version: | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
-|  11 Sep 2008 | Bugs:Item5995 - Rewritten to work on TWiki 4.2 |
+|  17 Mar 2009: | 1.0: Foswikitask:Item1251 - Initial release for Foswiki - Foswiki:Main.AndrewJones |
+|  11 Sep 2008: | Twikibugs:Item5995 - Rewritten to work on TWiki 4.2 - Foswiki:Main.AndrewJones |
 |  12 Jul 2002: | Initial version |
-|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.1 |
-|  Dependencies: | enscript, CPAN:IPC::Run |
+|  Dependencies: | %$DEPENDENCIES% |
 |  Plugin Home: | http://foswiki.org/Extensions/%TOPIC% |
-|  Feedback: | http://foswiki.org/Extensions/%TOPIC%Dev |
-|  Appraisal: | http://foswiki.org/Extensions/%TOPIC%Appraisal |
+|  Support: | http://foswiki.org/Support/%TOPIC% |
 
 __Related Topics:__ %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences, [[%SYSTEMWEB%.Plugins][Plugins]]
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the feedback topic on foswiki.org instead. -->

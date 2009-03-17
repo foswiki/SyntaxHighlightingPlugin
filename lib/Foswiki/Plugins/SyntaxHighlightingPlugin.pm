@@ -1,7 +1,6 @@
+# Plugin for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# TWiki WikiClone ($wikiversion has version info)
-#
-# Copyright (C) 2008 Andrew Jones, andrewjones86@gmail.com
+# Copyright (C) 2008 - 2009 Andrew Jones, andrewjones86@gmail.com
 # Copyright (C) 2000-2001 Andrea Sterbini, a.sterbini@flashnet.it
 # Copyright (C) 2001 Peter Thoeny, Peter@Thoeny.com
 #
@@ -18,7 +17,7 @@
 #
 # =========================
 #
-# This is the Syntax Highlighting TWiki plugin.
+# This was the Syntax Highlighting TWiki plugin, now forked for Foswiki
 # originally written by
 # Nicolas Tisserand (tisser_n@epita.fr), Nicolas Burrus (burrus_n@epita.fr)
 # and Perceval Anichini (anichi_p@epita.fr)
@@ -26,12 +25,12 @@
 # 
 # It uses enscript as syntax highlighter.
 # 
-# Use it in your twiki text by writing %CODE{"language"}% ... %ENDCODE%
+# Use it in your by writing %CODE{"language"}% ... %ENDCODE%
 # with language = ada asm awk bash c changelog c++ csh delphi diff diffs diffu elisp fortran fortran_pp haskell html idl inf java javascript
 # ksh m4 mail makefile maple matlab modula_2 nested nroff objc outline pascal perl postscript python rfc scheme sh skill sql states synopsys
 # tcl tcsh tex vba verilog vhdl vrml wmlscript zsh 
 
-package TWiki::Plugins::SyntaxHighlightingPlugin;
+package Foswiki::Plugins::SyntaxHighlightingPlugin;
 use strict;
 
 use IPC::Run qw( run ) ;
@@ -43,15 +42,13 @@ use vars qw(    $VERSION
                 $pluginName
                 %langs
                 );
+our $VERSION = '$Rev$';
+our $RELEASE = '1.0';
+our $SHORTDESCRIPTION = 'Highlights code fragments for many languages using ==enscript==.';
+our $NO_PREFS_IN_TOPIC = 1;
+our $pluginName = 'SyntaxHighlightingPlugin';
 
-$VERSION = '1.000';
-$SHORTDESCRIPTION = 'Highlights code fragments for many languages using ==enscript==';
-$RELEASE = 'TWiki-4.2';
-$NO_PREFS_IN_TOPIC = 1;
-
-$pluginName = 'SyntaxHighlightingPlugin';
-
-%langs = (
+our %langs = (
 		 "ada" => "ada",
 		 "asm" => "asm",
 		 "awk" => "awk",
@@ -113,12 +110,6 @@ $pluginName = 'SyntaxHighlightingPlugin';
 sub initPlugin {
     my( $topic, $web, $user, $installWeb ) = @_;
     
-    # check for Plugins.pm versions
-    if( $TWiki::Plugins::VERSION < 1.026 ) {
-        TWiki::Func::writeWarning( "Version mismatch between $pluginName and Plugins.pm" );
-        return 0;
-    }
-    
     # Plugin correctly initialized
     _Debug("initPlugin( $web.$topic ) is OK");
     
@@ -135,7 +126,7 @@ sub commonTagsHandler {
 
 sub _handleTag {
     
-    my %params = TWiki::Func::extractParameters($1);
+    my %params = Foswiki::Func::extractParameters($1);
     my $lang = lc$params{lang} || lc$params{_DEFAULT}; # language
     my $num = lc$params{num} || lc$params{number} || lc$params{numbered}; # start line number
     my $code = $2; # code to highlight
@@ -167,13 +158,14 @@ sub _handleTag {
 sub _highlight {
     my( $code, $lang ) = @_;
     
-    my $enscript = $TWiki::cfg{Plugins}{$pluginName}{EnscriptPath} || 'enscript';
+    my $enscript = $Foswiki::cfg{Plugins}{$pluginName}{EnscriptPath} || 'enscript';
     
     my @cmd;
     push @cmd, $enscript;
     push @cmd, qw( --color --language=html --output - --silent) ;
     push @cmd, "--highlight=$langs{lc($lang)}" ;
     my $out = '' ;
+    # FIXME: Should we use Foswiki::Sandbox instead?
     run \@cmd, \$code, \$out ;
 
     return $out;
@@ -197,7 +189,7 @@ sub _definedLang {
 sub _returnError {
     my( $text ) = @_;
 
-    my $out = '<span class="twikiAlert">';
+    my $out = '<span class="foswikiAlert">';
     $out .= "%SYSTEMWEB%.$pluginName - $text";
     $out .= '</span>';
 
@@ -208,13 +200,13 @@ sub _returnError {
 
 sub _Debug {
     my $text = shift;
-    my $debug = $TWiki::cfg{Plugins}{$pluginName}{Debug} || 0;
-    TWiki::Func::writeDebug( "- TWiki::Plugins::${pluginName}: $text" ) if $debug;
+    my $debug = $Foswiki::cfg{Plugins}{$pluginName}{Debug} || 0;
+    Foswiki::Func::writeDebug( "- Foswiki::Plugins::${pluginName}: $text" ) if $debug;
 }
 
 sub _Warn {
     my $text = shift;
-    TWiki::Func::writeWarning( "- TWiki::Plugins::${pluginName}: $text" );
+    Foswiki::Func::writeWarning( "- Foswiki::Plugins::${pluginName}: $text" );
 }
 
 1;

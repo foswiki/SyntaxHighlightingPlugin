@@ -1,0 +1,4 @@
+data/System/SyntaxHighlightingPlugin.txt Plugin Topic
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin.pm Perl Module
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin/Config.spec Configure Spec
+tools/SyntaxHighlightingPlugin_covert.pl Script to convert from old syntax to new
