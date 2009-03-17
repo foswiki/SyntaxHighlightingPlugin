@@ -1,6 +1,6 @@
 # ---+ Plugins
 # ---++ SyntaxHighlightingPlugin
-# **COMMAND** 
+# **COMMAND M**
 # Configure the enscript path.
 $Foswiki::cfg{Plugins}{SyntaxHighlightingPlugin}{EnscriptPath} = '/usr/bin/enscript';
 # **BOOLEAN**

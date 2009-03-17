@@ -1,3 +1,3 @@
 # Dependecies for SyntaxHighlightingPlugin
 IPC::Run,>0,cpan,Required
-enscript,>0,c,Required
+enscript,>1.6.4,c,Required. Known to work with version 1.6.4 and not with 1.6.1
