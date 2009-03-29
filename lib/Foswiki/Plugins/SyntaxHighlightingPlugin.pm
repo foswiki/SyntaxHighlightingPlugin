@@ -43,7 +43,7 @@ use vars qw(    $VERSION
                 %langs
                 );
 our $VERSION = '$Rev$';
-our $RELEASE = '1.0';
+our $RELEASE = '1.1';
 our $SHORTDESCRIPTION = 'Highlights code fragments for many languages using ==enscript==.';
 our $NO_PREFS_IN_TOPIC = 1;
 our $pluginName = 'SyntaxHighlightingPlugin';
@@ -118,7 +118,7 @@ sub initPlugin {
 
 sub commonTagsHandler {
 
-    $_[0] =~ s/%CODE{(.*?)}%\s*(.*?)%ENDCODE%/&_handleTag/egs;
+    $_[0] =~ s/%CODE(?:_ENSCRIPT)?{(.*?)}%\s*(.*?)%ENDCODE%/&_handleTag/egs;
 
 }
 
