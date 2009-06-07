@@ -172,9 +172,10 @@ You should ensure the path to =enscript= is correctly set in =configure= before 
 |  Plugin Release: | %$RELEASE% |
 |  Plugin Version: | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
-|  29 Mar 2009: | 1.1: Added =%<nop>CODE_ENSCRIPT%= syntax so it can be used with other syntax highlighters (Foswikitask:Item1353) |
-|  17 Mar 2009: | 1.0: Foswikitask:Item1251 - Initial release for Foswiki - Foswiki:Main.AndrewJones |
-|  11 Sep 2008: | Twikibugs:Item5995 - Rewritten to work on TWiki 4.2 - Foswiki:Main.AndrewJones |
+|  07 Jun 2009: | 1.2: Fixed rendering in numbered lists (Foswikitask:Item8176); Moved =configure= setting to Extensions heading -- Foswiki:Main.AndrewJones |
+|  29 Mar 2009: | 1.1: Added =%<nop>CODE_ENSCRIPT%= syntax so it can be used with other syntax highlighters (Foswikitask:Item1353) -- Foswiki:Main.AndrewJones |
+|  17 Mar 2009: | 1.0: Initial release for Foswiki (Foswikitask:Item1251) -- Foswiki:Main.AndrewJones |
+|  11 Sep 2008: | Rewritten to work on TWiki 4.2 (TWikibug:Item5995) -- Foswiki:Main.AndrewJones |
 |  12 Jul 2002: | Initial version |
 |  Dependencies: | %$DEPENDENCIES% |
 |  Plugin Home: | http://foswiki.org/Extensions/%TOPIC% |

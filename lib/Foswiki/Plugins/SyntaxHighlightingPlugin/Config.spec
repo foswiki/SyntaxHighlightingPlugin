@@ -1,4 +1,4 @@
-# ---+ Plugins
+# ---+ Extensions
 # ---++ SyntaxHighlightingPlugin
 # **COMMAND M**
 # Configure the enscript path.

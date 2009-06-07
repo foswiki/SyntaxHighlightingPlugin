@@ -43,7 +43,7 @@ use vars qw(    $VERSION
                 %langs
                 );
 our $VERSION = '$Rev$';
-our $RELEASE = '1.1';
+our $RELEASE = '1.2';
 our $SHORTDESCRIPTION = 'Highlights code fragments for many languages using ==enscript==.';
 our $NO_PREFS_IN_TOPIC = 1;
 our $pluginName = 'SyntaxHighlightingPlugin';
@@ -142,9 +142,9 @@ sub _handleTag {
             my $line = $num;
             $highlighted =~ s/(^.*)/sprintf("<b><font color=\"#000000\">%5d<\/font><\/b>\t%s", $line++, $1)/mgeo
         }
-        my $out = "<!-- !$pluginName -->\n";
+        my $out = "<!-- !$pluginName -->";
         $out .= "<pre class='syntaxHighlightingPlugin'>$highlighted</pre>";
-        $out .= "\n<!-- end !$pluginName -->";
+        $out .= "<!-- end !$pluginName -->";
         return $out;
     } else {
         _Warn('Error with enscript while highlighting. Check its installed correctly and the path is correct');
