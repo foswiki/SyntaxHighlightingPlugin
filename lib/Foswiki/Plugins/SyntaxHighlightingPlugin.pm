@@ -43,7 +43,7 @@ use vars qw(    $VERSION
                 %langs
                 );
 our $VERSION = '$Rev$';
-our $RELEASE = '1.2';
+our $RELEASE = '1.21';
 our $SHORTDESCRIPTION = 'Highlights code fragments for many languages using ==enscript==.';
 our $NO_PREFS_IN_TOPIC = 1;
 our $pluginName = 'SyntaxHighlightingPlugin';
