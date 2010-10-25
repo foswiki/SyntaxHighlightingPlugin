@@ -90,11 +90,11 @@ Currently all the Foswiki syntax highlighting plugins use the same =%<nop>CODE%=
 
 Version 1.2 of this plugin added support for using the %<nop>CODE_ENSCRIPT% syntax, which allows you to explicitly which plugin you want to highlight your code.
 
-Clearly this is not the best solution to the problem of using more than one highlighting plugin. You can read the background on why this approach was taken in the [Foswikitask:Item1353][task report]].
+Clearly this is not the best solution to the problem of using more than one highlighting plugin. You can read the background on why this approach was taken in the [[Foswikitask:Item1353][task report]].
 
 ---+++ Examples
 
-The following text :
+The following text:
 
 <verbatim> 
 <sticky>
@@ -110,6 +110,7 @@ int main()
 
 gives (if installed):
 
+<sticky>
 %CODE{"c++"}%
 #include <iostream>
 int main()
@@ -117,6 +118,7 @@ int main()
   std::cout << "Hello, world." << std::endl;
 }
 %ENDCODE%
+</sticky>
 
 You can also output numbered lines starting at 10 with this text:
 
@@ -136,6 +138,7 @@ done
 
 gives (if installed):
 
+<sticky>
 %CODE{"sh" num="10"}%
 #!/bin/sh
 languages=`enscript --help-highlight | grep 'Name:' | cut -d ' ' -f 2`
@@ -145,6 +148,7 @@ for l in $languages; do
 EOF
 done
 %ENDCODE%
+</sticky>
 
 ---+++ Change of Syntax
 
@@ -180,7 +184,7 @@ You should ensure the path to =enscript= is correctly set in =configure= before 
 |  Plugin Release: | %$RELEASE% |
 |  Plugin Version: | %$VERSION% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
-|  25 Oct 2010: | 1.21: Documentation updates.  -- TWiki:Main.AndreasKeil, Foswiki:Main.WillNorris |
+|  25 Oct 2010: | 1.21: Documentation updates.  -- Foswiki:Main.AndreasKeil, Foswiki:Main.WillNorris |
 |  07 Jun 2009: | 1.2: Fixed rendering in numbered lists (Foswikitask:Item8176); Moved =configure= setting to Extensions heading -- Foswiki:Main.AndrewJones |
 |  29 Mar 2009: | 1.1: Added =%<nop>CODE_ENSCRIPT%= syntax so it can be used with other syntax highlighters (Foswikitask:Item1353) -- Foswiki:Main.AndrewJones |
 |  17 Mar 2009: | 1.0: Initial release for Foswiki (Foswikitask:Item1251) -- Foswiki:Main.AndrewJones |
