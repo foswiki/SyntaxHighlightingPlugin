@@ -130,9 +130,11 @@ sub _handleTag {
     my %params = Foswiki::Func::extractParameters($1);
     my $lang = lc $params{lang} || lc $params{_DEFAULT};    # language
     my $num =
-         lc $params{num}
-      || lc $params{number}
-      || lc $params{numbered};    # start line number
+         $params{num}
+      || $params{number}
+      || $params{numbered}
+      || 0;    # start line number
+    $num = lc $num;
     my $code = $2;                # code to highlight
 
     unless ( _definedLang($lang) ) {
