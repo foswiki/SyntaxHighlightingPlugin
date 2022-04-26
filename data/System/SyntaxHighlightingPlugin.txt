@@ -1,11 +1,6 @@
-%META:TOPICINFO{author="ProjectContributor" date="1407719254" format="1.1" version="1"}%
-
+%META:TOPICINFO{author="micha" date="1650976236" format="1.1" version="2"}%
 ---+!! !SyntaxHighlightingPlugin
-<!--
-One line description, required for extensions repository catalog.
-   * Set SHORTDESCRIPTION = This Plugin is used to emphasize the rendering of your wiki text according to several languages.
--->
-%SHORTDESCRIPTION%
+%FORMFIELD{"Description"}%
 
 %TOC%
 
@@ -16,73 +11,90 @@ The Syntax Highlighting Plugin is used to emphasize the rendering of your wiki t
 It uses =enscript= to render its output.
 
 It supports the following languages :
-	* ada
-	* asm
-	* awk
-	* bash
-	* c
-	* changelog
-	* c++
-	* csh
-	* delphi
-	* diff
-	* diffs
-	* diffu
-	* elisp
-	* fortran
-	* fortran_pp
-	* haskell
-	* html
-	* idl
-	* inf
-	* java
-	* javascript
-	* ksh
-	* m4
-	* mail
-	* makefile
-	* maple
-	* matlab
-	* modula_2
-	* nested
-	* nroff
-	* objc
-	* outline
-	* pascal
-	* perl
-	* postscript
-	* python
-	* rfc
-	* scheme
-	* sh
-	* skill
-	* sql
-	* states
-	* synopsys
-	* tcl
-	* tcsh
-	* tex
-	* vba
-	* verilog
-	* vhdl
-	* vrml
-	* wmlscript
-	* zsh
+
+   1 ada
+   1 asm
+   1 awk
+   1 bash
+   1 c
+   1 changelog
+   1 cpp (c++)
+   1 csh
+   1 delphi
+   1 diff
+   1 diffs
+   1 diffu
+   1 dylan
+   1 eiffel
+   1 elisp
+   1 f90
+   1 forth
+   1 fortran
+   1 fortran_pp (fortran77)
+   1 haskell
+   1 html
+   1 icon
+   1 idl
+   1 inf
+   1 java
+   1 javascript (js)
+   1 ksh
+   1 lua
+   1 m4
+   1 mail
+   1 makefile
+   1 matlab
+   1 nroff
+   1 oberon2
+   1 objc
+   1 octave
+   1 outline
+   1 oz
+   1 pascal
+   1 perl
+   1 postscript
+   1 pyrex
+   1 python
+   1 rfc
+   1 ruby
+   1 scheme
+   1 sh
+   1 skill
+   1 Smalltalk
+   1 sml
+   1 sql
+   1 states
+   1 synopsys
+   1 tcl
+   1 tcsh
+   1 tex
+   1 vba
+   1 verilog
+   1 vhdl
+   1 vrml
+   1 wmlscript
+   1 zsh
 
 ---+++ Syntax Rules
 
 To use this plugin, use the following syntax:
 
 <verbatim>
-<sticky>
 %CODE{lang="..." [num="10"]}% 
 ...code...
 %ENDCODE%
-</sticky>
 </verbatim>
 
 The language can be any from the above list. The =num= setting is optional and will set the starting line number.  
-The =&lt;sticky&gt;= tags are required to prevent Foswiki's WYSIWYG editor from removing line breaks inside the code block.
+Use =&lt;sticky&gt;= tags to prevent Foswiki's WYSIWYG editor from removing line breaks inside the code block:
+
+<verbatim>
+<sticky>
+%CODE{...}%
+... code ...
+%ENDCODE%
+</sticky>
+</verbatim>
 
 ---+++ Using %TOPIC% With Other Syntax Highlighters
 
@@ -96,8 +108,7 @@ Clearly this is not the best solution to the problem of using more than one high
 
 The following text:
 
-<verbatim> 
-<sticky>
+<verbatim>
 %CODE{"c++"}%
 #include <iostream>
 int main()
@@ -105,12 +116,10 @@ int main()
   std::cout << "Hello, world." << std::endl;
 }
 %ENDCODE%
-</sticky>
 </verbatim>
 
 gives (if installed):
 
-<sticky>
 %CODE{"c++"}%
 #include <iostream>
 int main()
@@ -118,12 +127,10 @@ int main()
   std::cout << "Hello, world." << std::endl;
 }
 %ENDCODE%
-</sticky>
 
 You can also output numbered lines starting at 10 with this text:
 
 <verbatim>
-<sticky>
 %CODE{"sh" num="10"}% 
 #!/bin/sh
 languages=`enscript --help-highlight | grep 'Name:' | cut -d ' ' -f 2`
@@ -133,12 +140,10 @@ for l in $languages; do
 EOF
 done
 %ENDCODE% 
-</sticky>
 </verbatim>
 
 gives (if installed):
 
-<sticky>
 %CODE{"sh" num="10"}%
 #!/bin/sh
 languages=`enscript --help-highlight | grep 'Name:' | cut -d ' ' -f 2`
@@ -148,21 +153,22 @@ for l in $languages; do
 EOF
 done
 %ENDCODE%
-</sticky>
 
 ---+++ Change of Syntax
 
 This plugin used to use the following syntax (pre September 2008):
 
 <verbatim>
-<sticky>
 %begin sh%
 ...code...
 %end%
-</sticky>
 </verbatim>
 
-This has been changed to be more consistent with other Foswiki variables. There is a script included which will replace the old syntax with the new. To use it, copy it from the =tools= directory and into your =data= directory. When you run it, it will look through your webs and replace the syntax. Note that its not the best script in the world, so always test it on a copy of your data first!
+This has been changed to be more consistent with other Foswiki variables. There
+is a script included which will replace the old syntax with the new. To use it,
+copy it from the =tools= directory and into your =data= directory. When you run
+it, it will look through your webs and replace the syntax. Note that its not
+the best script in the world, so always test it on a copy of your data first!
 
 ---++ Installation Instructions
 
@@ -170,30 +176,27 @@ This has been changed to be more consistent with other Foswiki variables. There 
 
 You should ensure the path to =enscript= is correctly set in =configure= before enabling the plugin.
 
----++ Plugin Files
+---++ Dependencies
+%$DEPENDENCIES%
 
-   | *File:* | *Description:* |
-%$MANIFEST%
-
----+++ Plugin Info
-
-|  Plugin Author(s): | Foswiki:Main.AndrewJones |
-|  Previous Author(s): | TWiki:Main.NicolasTisserand, TWiki:Main.NicolasBurrus, Perceval Anichini |
-|  Copyright: | &copy; 2008 - 2009, Andrew Jones, &copy; 2000 - 2001, Andrea Sterbini, &copy; 2001, Peter Theony |
-|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
-|  Plugin Release: | %$RELEASE% |
-|  Plugin Version: | %$VERSION% |
-|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+---++ Change History
+%TABLE{columnwidths="7em" tablewidth="100%"}%
+|  26 Apr 2022: | 2.00: rewrite and cleanup -- Foswiki:Main.MichaelDaum |
 |  25 Oct 2010: | 1.21: Documentation updates.  -- Foswiki:Main.AndreasKeil, Foswiki:Main.WillNorris |
 |  07 Jun 2009: | 1.2: Fixed rendering in numbered lists (Foswikitask:Item8176); Moved =configure= setting to Extensions heading -- Foswiki:Main.AndrewJones |
 |  29 Mar 2009: | 1.1: Added =%<nop>CODE_ENSCRIPT%= syntax so it can be used with other syntax highlighters (Foswikitask:Item1353) -- Foswiki:Main.AndrewJones |
 |  17 Mar 2009: | 1.0: Initial release for Foswiki (Foswikitask:Item1251) -- Foswiki:Main.AndrewJones |
 |  11 Sep 2008: | Rewritten to work on TWiki 4.2 (TWikibug:Item5995) -- Foswiki:Main.AndrewJones |
 |  12 Jul 2002: | Initial version |
-|  Dependencies: | %$DEPENDENCIES% |
-|  Plugin Home: | http://foswiki.org/Extensions/%TOPIC% |
-|  Support: | http://foswiki.org/Support/%TOPIC% |
 
-__Related Topics:__ %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences, [[%SYSTEMWEB%.Plugins][Plugins]]
 
-<!-- Do _not_ attempt to edit this topic; it is auto-generated. Please add comments/questions/remarks to the feedback topic on foswiki.org instead. -->
+%META:FORM{name="PackageForm"}%
+%META:FIELD{name="Author" title="Author" value="TWiki:Main.NicolasTisserand, TWiki:Main.NicolasBurrus, Perceval Anichini, Foswiki:Main.AndrewJones, Foswiki:Main.MichaelDaum"}%
+%META:FIELD{name="Version" title="Version" value="%25$VERSION%25"}%
+%META:FIELD{name="Release" title="Release" value="%25$RELEASE%25"}%
+%META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
+%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/%25TOPIC%25"}%
+%META:FIELD{name="Copyright" title="Copyright" value="&copy; 2008 - 2009, Andrew Jones, &copy; 2000 - 2001, Andrea Sterbini, &copy; 2001, Peter Theony, &copy; 2021-2022 Foswiki Contributors"}%
+%META:FIELD{name="License" title="License" value="GPL ([[https://www.gnu.org/copyleft/gpl.html][GNU General Public License]])"}%
+%META:FIELD{name="Home" title="Home" value="https://foswiki.org/Extensions/%25TOPIC%25"}%
+%META:FIELD{name="Support" title="Support" value="https://foswiki.org/Support/%25TOPIC%25"}%

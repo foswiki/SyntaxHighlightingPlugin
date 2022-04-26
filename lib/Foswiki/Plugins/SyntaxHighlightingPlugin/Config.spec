@@ -1,9 +1,9 @@
 # ---+ Extensions
 # ---++ SyntaxHighlightingPlugin
+
 # **COMMAND M**
-# Configure the enscript path.
-$Foswiki::cfg{Plugins}{SyntaxHighlightingPlugin}{EnscriptPath} = '/usr/bin/enscript';
+$Foswiki::cfg{Plugins}{SyntaxHighlightingPlugin}{EnscriptCommand} = '/usr/bin/enscript --color --language=html --output - --silent --highlight=%LANG|S% %FILENAME|F%';
+
 # **BOOLEAN**
-# Debug flag
 $Foswiki::cfg{Plugins}{SyntaxHighlightingPlugin}{Debug} = 0;
 1;

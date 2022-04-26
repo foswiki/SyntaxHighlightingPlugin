@@ -1,0 +1,9 @@
+*.swp
+/SyntaxHighlightingPlugin.md5
+/SyntaxHighlightingPlugin.sha1
+/SyntaxHighlightingPlugin.tgz
+/SyntaxHighlightingPlugin.txt
+/SyntaxHighlightingPlugin.zip
+/SyntaxHighlightingPlugin_installer
+/SyntaxHighlightingPlugin_installer.pl
+*,v

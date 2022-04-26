@@ -1,4 +1,8 @@
-data/System/SyntaxHighlightingPlugin.txt Plugin Topic
-lib/Foswiki/Plugins/SyntaxHighlightingPlugin.pm Perl Module
-lib/Foswiki/Plugins/SyntaxHighlightingPlugin/Config.spec Configure Spec
-tools/SyntaxHighlightingPlugin_covert.pl Script to convert from old syntax to new
+!noci
+data/System/SyntaxHighlightingPlugin.txt 0644
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin/Config.spec 0644
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin/Core.pm 0644
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin/DEPENDENCIES 0644
+lib/Foswiki/Plugins/SyntaxHighlightingPlugin.pm 0644
+tools/SyntaxHighlightingPlugin_covert.pl 0755
+tools/update_languages.sh 0755
